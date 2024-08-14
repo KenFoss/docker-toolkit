@@ -100,6 +100,14 @@ services:
       CONFLUENT_METRICS_REPORTER_BOOTSTRAP_SERVERS: 'PLAINTEXT://kafka-broker-1:9092'
       CONFLUENT_METRICS_REPORTER_ZOOKEEPER_CONNECT: 'zookeeper:2181'
       CONFLUENT_METRICS_REPORTER_TOPIC_REPLICAS: 1
+  
+  schema-repository:
+    image: nginx:latest
+    ports:
+      - "8888:8888"
+    volumes:
+      - ../kafka-schema-registry/:/usr/share/nginx/html:ro
+
 
 
 networks:
