@@ -102,11 +102,11 @@ services:
       CONFLUENT_METRICS_REPORTER_TOPIC_REPLICAS: 1
   
   schema-repository:
-    image: nginx:latest
+    image: httpd:latest
     ports:
-      - "8888:8888"
+      - "8888:80"
     volumes:
-      - ../kafka-schema-registry/:/usr/share/nginx/html:ro
+      - ../kafka-schema-registry/com:/usr/local/apache2/htdocs/com
 
 
 
