@@ -18,6 +18,8 @@ services:
       MYSQL_ROOT_PASSWORD: root
     volumes:
       - ./docker-conf/mysql_data:/var/lib/mysql
+    networks:
+      - local-dev-docker-network
   
   rabbitmq:
     image: rabbitmq:3-management-alpine
@@ -111,6 +113,6 @@ services:
 
 
 networks:
-  kafka-network:
+  local-dev-docker-network:
     driver: bridge
 
